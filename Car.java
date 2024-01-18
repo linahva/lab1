@@ -7,7 +7,7 @@ abstract class Car implements Movable{
     private double currentSpeed; // The current speed of the car
     private Color color; // Color of the car
     private String modelName; // The car model name
-
+    private double direction;
     private Point2D point;
 
 
@@ -18,6 +18,7 @@ abstract class Car implements Movable{
         //this.currentSpeed = currentSpeed;
         this.modelName = modelName;
         this.point = new Point(0,0);
+        this.direction = 0;
         stopEngine();
     }
 
@@ -51,20 +52,17 @@ abstract class Car implements Movable{
 
         @Override
         public void move() {
-            newX =
-            point = new Point2D(, y)
-            yforward += getCurrentSpeed();
-            point.y -=  getCurrentSpeed();
+            point.setLocation(point.getX() + Math.cos(direction) * currentSpeed, point.getY() + Math.sin(direction) * currentSpeed);
         }
 
         @Override
         public void turnRight() {
-
+            direction += direction-5;
         }
 
         @Override
         public void turnLeft() {
-            point.x -= getCurrentSpeed();
+            direction += direction+5;
         }
 
         public double getX() {
@@ -75,12 +73,12 @@ abstract class Car implements Movable{
             return point.getY();
         }
 
-        public Point getPosition() {
+        public Point2D getPosition() {
             return point;
         }
 
         public double getDirection() {
-            direction = sqrt()
+            return direction;
         }
 
         public abstract double speedFactor();

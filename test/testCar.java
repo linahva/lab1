@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.awt.Color;
 import org.junit.Before;
+//Hej
 
 public class testCar {
     private Car volvo;

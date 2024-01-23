@@ -90,15 +90,34 @@ abstract class Car implements Movable{
             currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
         }
         // TODO fix this method according to lab pm
+        //skriv dokumentation
         public void gas(double amount) {
-            if (amount >= 0 && amount <= 1)
+            if (amount >= 0 && amount <= 1){
                 incrementSpeed(amount);
+            }
+                else {
+                    try {
+                    throw new Exception();
+                }
+                catch (Exception ex) {
+                    System.out.println("Cant have value below 0 or above 1");
+                }
+            }
+
         }
 
         // TODO fix this method according to lab pm
         public void brake(double amount) {
-            if (amount >= 0 && amount <= 1)
+            if (amount >= 0 && amount <= 1){
                 decrementSpeed(amount);
+            } else {
+                try {
+                throw new Exception();
+            }
+            catch (Exception ex) {
+                System.out.println("Cant have value below 0 or above 1");
+            }
         }
+    }
     }
 

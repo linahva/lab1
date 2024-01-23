@@ -17,14 +17,14 @@ abstract class Car implements Movable{
         this.enginePower = enginePower;
         //this.currentSpeed = currentSpeed;
         this.modelName = modelName;
-        this.point = new Point(0,0);
+        this.point = new Point2D.Double(0, 0);
         this.direction = 0;
         stopEngine();
     }
 
-        public int getNrDoors() {
-            return nrDoors;
-        }
+    public int getNrDoors() {
+        return nrDoors;
+    }
 
         public double getEnginePower() {
             return enginePower;
@@ -57,12 +57,12 @@ abstract class Car implements Movable{
 
         @Override
         public void turnRight() {
-            direction += direction-5;
+            direction += direction-Math.PI/3;
         }
 
         @Override
         public void turnLeft() {
-            direction += direction+5;
+            direction += direction+Math.PI/3;
         }
 
         public double getX() {

@@ -9,6 +9,7 @@ abstract class Car implements Movable{
     private String modelName; // The car model name
     private double direction;
     private Point2D point;
+    protected int carSizeCategory;
 
 
     public Car(int nrDoors, Color color, double enginePower, String modelName) {
@@ -19,11 +20,15 @@ abstract class Car implements Movable{
         this.modelName = modelName;
         this.point = new Point2D.Double(0, 0);
         this.direction = 0;
+        this.carSizeCategory = 1;
         stopEngine();
     }
 
     public int getNrDoors() {
         return nrDoors;
+    }
+    public int getCarSizeCategory() {
+        return carSizeCategory;
     }
 
         public double getEnginePower() {
@@ -72,6 +77,9 @@ abstract class Car implements Movable{
         public double getY() {
             return point.getY();
         }
+        public void setLocation(double x, double y){
+            point.setLocation(x, y);
+        }
 
         public Point2D getPosition() {
             return point;
@@ -82,6 +90,7 @@ abstract class Car implements Movable{
         }
 
         public abstract double speedFactor();
+
         public void incrementSpeed(double amount){
             currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, enginePower);
         }
@@ -89,6 +98,7 @@ abstract class Car implements Movable{
         public void decrementSpeed(double amount) {
             currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
         }
+
         // TODO fix this method according to lab pm
         //skriv dokumentation
         public void gas(double amount) {

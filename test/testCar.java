@@ -61,6 +61,14 @@ public class testCar {
         assertEquals(volvo.getCurrentSpeed(), volvo.getEnginePower(), 0.0001);
     }
 
+    @Test void testTurnRight() {
+        volvo.turnRight();
+        saab.turnRight();
+        assertEquals(volvo.getDirection(), -Math.PI/3);
+        assertEquals(saab.getDirection(), -Math.PI/3);
+    
+    }
+
     @Test
     public void testStartEnginge() {
         volvo.startEngine();
@@ -87,14 +95,6 @@ public class testCar {
         double vx = saab.getX();
         assertEquals(vx, 0.1);
         assertEquals(sx, 0.1);
-    }
-    
-    @Test
-    public void testTurnRight() {
-        volvo.turnRight();
-        saab.turnRight();
-        assertEquals(volvo.getDirection(), -Math.PI/3);
-        assertEquals(saab.getDirection(), -Math.PI/3);
     }
     
     @Test

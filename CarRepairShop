@@ -18,5 +18,4 @@ class CarRepairShop implements Loadable{
     public void loadCar(Saab95 car) {
         loadedCars.loadCar(car, shopX(), shopY());
     }
-
 }

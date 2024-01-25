@@ -1,4 +1,5 @@
-interface Loadable {
-    public void loadCar(Car car);
-    public void unloadCar(Car car);
+
+public interface Loadable<T> {
+    public void loadCar(T car);
+    public void unloadCar(T car);
 }

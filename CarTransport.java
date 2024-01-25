@@ -1,13 +1,13 @@
 import java.awt.Color;
 import java.util.ArrayList;
 
-public class CarTransport extends Truck implements Loadable{
-    private CarLoader loadedCars;
+public class CarTransport extends Truck implements Loadable<Car>{
+    private CarLoader<Car> loadedCars;
     private CarPlatform carPlatform;
 
     CarTransport(){
         super(2, Color.BLACK, 500, "CarTransport");
-        loadedCars = new CarLoader(3);
+        loadedCars = new CarLoader<Car>(3);
         carPlatform = new CarPlatform();
     }
     

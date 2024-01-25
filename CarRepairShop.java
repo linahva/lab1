@@ -1,10 +1,12 @@
-class CarRepairShop implements Loadable{
-    private CarLoader loadedCars;
+import java.awt.geom.Point2D;
+
+class CarRepairShop<T extends Car> implements Loadable<T>{
+    private CarLoader<T> loadedCars;
     private Point2D shopLocation;
 
     CarRepairShop(int capacity, double x, double y) {
         shopLocation = new Point2D.Double(x, y);
-        loadedCars = new CarLoader(capacity);
+        loadedCars = new CarLoader<T>(capacity);
     }
     private double shopX() {
         return shopLocation.getX();
@@ -12,10 +14,10 @@ class CarRepairShop implements Loadable{
     private double shopY() {
         return shopLocation.getY();
     }
-    public void unloadCar(Saab95 car) {
+    public void unloadCar(T car) {
         loadedCars.unloadCar(car);
     }
-    public void loadCar(Saab95 car) {
+    public void loadCar(T car) {
         loadedCars.loadCar(car, shopX(), shopY());
     }
 }

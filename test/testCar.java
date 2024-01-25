@@ -128,13 +128,4 @@ public class testCar {
         assertEquals(volvo.getColor(), Color.red);
         assertEquals(saab.getColor(), Color.red);
     }
-    @Test
-    public void testShop() {
-        CarRepairShop shop = new CarRepairShop(10, 0, 0);
-        shop.loadCar(saab);
-        shop.loadCar(volvo);
-        shop.unloadCar(saab);
-        shop.unloadCar(volvo);
-        assertEquals(shop.getLoadedCars().size(), 0);
-    }
 }

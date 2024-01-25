@@ -1,6 +1,6 @@
 import java.awt.Color;
 
-abstract class Truck extends Car{
+abstract class Truck extends Vehichle{
 
     Truck(int nrDoors, Color color, double enginePower, String modelName) {
         super(nrDoors, color, enginePower, modelName);

@@ -1,16 +1,16 @@
 import java.util.ArrayList;
 
-public class CarLoader {
+public class CarLoader<T extends Car>{
 
-    private ArrayList<Car> loadedCars = new ArrayList<Car>();
+    private ArrayList<T> loadedCars;
     private int capacity;
 
     public CarLoader(int capacity) {
-        loadedCars = new ArrayList<Car>(capacity);
+        loadedCars = new ArrayList<T>(capacity);
         this.capacity=capacity;
     }
 
-    public void loadCar(Car car, double x, double y){
+    public void loadCar(T car, double x, double y){
         if (!carProximity(car, x, y)){
             System.out.println("Car to far away to load");
             return;
@@ -25,17 +25,17 @@ public class CarLoader {
         }
     }
 
-    public ArrayList<Car> getLoadedCars() {
+    public ArrayList<T> getLoadedCars() {
         return loadedCars;
     }
 
-    private boolean carProximity(Car car, double x, double y){
+    private boolean carProximity(T car, double x, double y){
         double xCar = car.getX();
         double yCar = car.getY();
         double dist = Math.sqrt(Math.pow(xCar-x,2)+Math.pow(yCar-y,2));
         return dist < 1.5;
     }
-    public void unloadCar(Car car) {
+    public void unloadCar(T car) {
             if (loadedCars.size()>0 && loadedCars.get(loadedCars.size()-1)==car){
                 loadedCars.remove(car);
                 car.setLocation(car.getX()+1, car.getY()+1);

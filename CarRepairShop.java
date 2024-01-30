@@ -1,12 +1,12 @@
 import java.awt.geom.Point2D;
 
 class CarRepairShop<T extends Car> implements Loadable<T>{
-    private CarLoader<T> loadedCars;
+    private CarLoader loadedCars;
     private Point2D shopLocation;
 
     CarRepairShop(int capacity, double x, double y) {
         shopLocation = new Point2D.Double(x, y);
-        loadedCars = new CarLoader<T>(capacity);
+        loadedCars = new CarLoader(capacity);
     }
     private double shopX() {
         return shopLocation.getX();

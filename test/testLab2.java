@@ -5,14 +5,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class testLab2 {
     @Test
     public void testCarLoader(){
-        CarLoader<Volvo240> volvoLoader = new CarLoader<Volvo240>(1);
-        CarLoader<Saab95> saabLoader = new CarLoader<Saab95>(1);
+        CarLoader loader = new CarLoader(2);
         Volvo240 volvo = new Volvo240();
         Saab95 saab = new Saab95();
-        volvoLoader.loadCar(volvo, 0, 0);
-        saabLoader.loadCar(saab, 0, 0);
-        volvoLoader.unloadCar(volvo);
-        saabLoader.unloadCar(saab);
+        loader.loadCar(volvo, 0, 0);
+        loader.loadCar(saab, 0, 0);
+        loader.unloadCar(saab);
+        loader.unloadCar(volvo);
         assertEquals(volvo.getX(), 0);
         assertEquals(saab.getX(), 0);
     }

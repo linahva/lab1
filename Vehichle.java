@@ -2,22 +2,22 @@ import java.awt.Color;
 import java.awt.geom.Point2D;
 
 abstract class Vehichle implements Movable{
-    protected int nrDoors; // Number of doors on the car
+    private int nrDoors; // Number of doors on the car
     protected double enginePower; // Engine power of the car
-    protected double currentSpeed = 0; // The current speed of the car
-    protected Color color; // Color of the car
-    protected String modelName; // The car model name
-    protected double direction = 0;
-    protected Point2D point;
-    protected int carSizeCategory;
+    private double currentSpeed = 0; // The current speed of the car
+    private Color color; // Color of the car
+    private String modelName; // The car model name
+    private double direction = 0;
+    private Point2D point;
+    private int carSizeCategory;
 
-    public Vehichle(int nrDoors, Color color, double enginePower, String modelName) {
+    public Vehichle(int nrDoors, Color color, double enginePower, String modelName, int category) {
         this.nrDoors = nrDoors;
         this.color = color;
         this.enginePower = enginePower;
         this.modelName = modelName;
         this.point = new Point2D.Double(0, 0);
-        //this.carSizeCategory = 1;
+        this.carSizeCategory = category;
         stopEngine();
     }
     public int getNrDoors() {

@@ -1,6 +1,7 @@
 public class CarPlatformAngles implements Platform{
     private double angle;
     private double maxAngle;
+    
     public CarPlatformAngles(double maxAngle){
         this.angle = 0;
         this.maxAngle = maxAngle;

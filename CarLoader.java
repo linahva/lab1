@@ -20,6 +20,7 @@ public class CarLoader<T extends Car>{
         }
         if (loadedCars.size() < capacity){
             loadedCars.add(car);
+            car.setLocation(x, y);
         } else {
             System.out.println("Can't load more cars");
         }
@@ -38,9 +39,9 @@ public class CarLoader<T extends Car>{
     public void unloadCar(T car) {
             if (loadedCars.size()>0 && loadedCars.get(loadedCars.size()-1)==car){
                 loadedCars.remove(car);
-                car.setLocation(car.getX()+1, car.getY()+1);
+                car.setLocation(car.getX(), car.getY()-1);
             } else {
-                System.out.println("Can't unload car that doesnt exist or is not last in line");
+                throw new IllegalArgumentException("that car is not on top of the truck or doesnt exist");
             }
     }
 }

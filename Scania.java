@@ -12,14 +12,14 @@ public class Scania extends Truck{
     }
     public void raisePlatform(){
         if (getCurrentSpeed()>0){
-            System.out.println("Can't raise platform while moving");
+            throw new IllegalStateException("Can't raise platform while moving");
         } else {
             carPlatform.rampUp();
         }
     }
     public void lowerPlatform(){
         if (getCurrentSpeed()>0){
-            System.out.println("Can't lower platform while moving");
+            throw new IllegalStateException("Can't lower platform while moving");
         } else {
             carPlatform.rampDown();
         }

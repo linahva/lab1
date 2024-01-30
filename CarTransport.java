@@ -19,19 +19,19 @@ public class CarTransport extends Truck implements Loadable<Car>{
                 car.setLocation(getX(), getY());
             }
         } else {
-            System.out.println("Can't move while truck bed is raised");
+            throw new IllegalStateException("Cant move while truck bed is raised");
         }
     }
     public void raisePlatform(){
         if (getCurrentSpeed()>0){
-            System.out.println("Can't raise platform while moving");
+            throw new IllegalStateException("Cant raise platform while moving");
         } else {
             carPlatform.rampUp();
         }
     }
     public void lowerPlatform(){
         if (getCurrentSpeed()>0){
-            System.out.println("Can't lower platform while moving");
+            throw new IllegalStateException("Cant lower platform while moving");
         } else {
             carPlatform.rampDown();
         }
@@ -40,14 +40,14 @@ public class CarTransport extends Truck implements Loadable<Car>{
         if (!getPlatformStatus()){
             loadedCars.loadCar(car, getX(), getY());
         } else {
-            System.out.println("Can't load car while truck bed is raised");
+            throw new IllegalStateException("Cant load car while truck bed is raised");
         }
     }
     public void unloadCar(Car car){
         if (!getPlatformStatus()){
             loadedCars.unloadCar(car);
         } else {
-            System.out.println("Can't unload car while truck bed is raised");
+            throw new IllegalStateException("Cant unload car while truck bed is raised");
         }
     }
     public ArrayList<Car> getLoadedCars() {

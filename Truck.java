@@ -3,8 +3,7 @@ import java.awt.Color;
 abstract class Truck extends Vehichle{
 
     Truck(int nrDoors, Color color, double enginePower, String modelName) {
-        super(nrDoors, color, enginePower, modelName);
-        this.carSizeCategory = 2;
+        super(nrDoors, color, enginePower, modelName, 2);
     }
     
     @Override
@@ -16,7 +15,7 @@ abstract class Truck extends Vehichle{
         if (getPlatformStatus()){
             super.startEngine();
         } else {
-            System.out.println("Truck bed is raised, can't start engine");
+            throw new IllegalStateException("Cant start engine because platform is down");
         }
     }
     abstract public boolean getPlatformStatus();

@@ -96,4 +96,5 @@ public class testLab2 {
         platform.rampDown();
         assertTrue(platform.isRampDown());
     }
+
 }

@@ -1,4 +1,5 @@
 import java.awt.geom.Point2D;
+import java.util.ArrayList;
 
 class CarRepairShop<T extends Car> implements Loadable<T>{
     private CarLoader loadedCars;
@@ -19,5 +20,8 @@ class CarRepairShop<T extends Car> implements Loadable<T>{
     }
     public void loadCar(T car) {
         loadedCars.loadCar(car, shopX(), shopY());
+    }
+    public ArrayList<Car> getLoadedCars() {
+        return loadedCars.getLoadedCars();
     }
 }

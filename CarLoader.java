@@ -12,17 +12,15 @@ public class CarLoader{
 
     public void loadCar(Car car, double x, double y){
         if (!carProximity(car, x, y)){
-            System.out.println("Car to far away to load");
-            return;
+            throw new IllegalStateException("Car not close enough to load");
         } else if (car.getCarSizeCategory()>1){
-            System.out.println("Car to big to load");
-            return;
+            throw new IllegalStateException("Car too big to load");
         }
         if (loadedCars.size() < capacity){
             loadedCars.add(car);
             car.setLocation(x, y);
         } else {
-            System.out.println("Can't load more cars");
+            throw new IllegalStateException("Truck is full");
         }
     }
 

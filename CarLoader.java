@@ -35,6 +35,7 @@ public class CarLoader{
         return dist < 1.5;
     }
     public void unloadCar(Car car) {
+        //använd stack
             if (loadedCars.size()>0 && loadedCars.get(loadedCars.size()-1)==car){
                 loadedCars.remove(car);
                 car.setLocation(car.getX(), car.getY()-1);

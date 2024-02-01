@@ -25,3 +25,4 @@ class CarRepairShop<T extends Car> implements Loadable<T>{
         return loadedCars.getLoadedCars();
     }
 }
+

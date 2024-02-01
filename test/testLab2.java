@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class testLab2 {
     
@@ -44,7 +44,7 @@ public class testLab2 {
         assertTrue(transporter.getLoadedCars().isEmpty());
     }
     @Test
-    public void testPlatform(){
+    public void testTransportPlatform(){
         CarTransport transporter = new CarTransport();
         Volvo240 volvo = new Volvo240();
         Saab95 saab = new Saab95();
@@ -65,5 +65,35 @@ public class testLab2 {
         assertTrue(!scania.getPlatformStatus());
         scania.lowerPlatform();
         assertEquals(scania.getRampAngle(), 0);
+    }
+
+    @Test
+    public void carTransportRaisePlatformTest(){
+        CarTransport transport = new CarTransport();
+        transport.raisePlatform();
+        assertFalse(transport.getPlatformStatus());
+    }
+
+    @Test
+    public void carTransportLowerPlatformTest(){
+        CarTransport transport = new CarTransport();
+        transport.raisePlatform();
+        transport.lowerPlatform();
+        assertTrue(transport.getPlatformStatus());
+    }
+
+    @Test
+    public void testCarPlatform(){
+        CarPlatform platform = new CarPlatform();
+        platform.rampUp();
+        assertFalse(platform.isRampDown());
+    }
+
+    @Test
+    public void testCarPlatformDown(){
+        CarPlatform platform = new CarPlatform();
+        platform.rampUp();
+        platform.rampDown();
+        assertTrue(platform.isRampDown());
     }
 }

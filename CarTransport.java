@@ -1,14 +1,14 @@
 import java.awt.Color;
-import java.util.ArrayList;
+import java.util.Stack;
 
 public class CarTransport extends Truck implements Loadable<Car>{
     private CarLoader loadedCars;
-    private CarTransportPlatform carPlatform;
+    private CarPlatform carPlatform;
 
     CarTransport(){
         super(2, Color.BLACK, 500, "CarTransport");
         loadedCars = new CarLoader(3);
-        carPlatform = new CarTransportPlatform();
+        carPlatform = new CarPlatform();
     }
     
     @Override
@@ -43,14 +43,14 @@ public class CarTransport extends Truck implements Loadable<Car>{
             throw new IllegalStateException("Cant load car while truck bed is raised");
         }
     }
-    public void unloadCar(Car car){
+    public void unloadCar(){
         if (getPlatformStatus()){
-            loadedCars.unloadCar(car);
+            loadedCars.unloadCar();
         } else {
             throw new IllegalStateException("Cant unload car while truck bed is raised");
         }
     }
-    public ArrayList<Car> getLoadedCars() {
+    public Stack<Car> getLoadedCars() {
         return loadedCars.getLoadedCars();
     }
 

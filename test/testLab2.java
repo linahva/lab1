@@ -3,7 +3,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class testLab2 {
-    
+
     @Test
     public void testCarLoader(){
         CarLoader loader = new CarLoader(2);
@@ -11,8 +11,8 @@ public class testLab2 {
         Saab95 saab = new Saab95();
         loader.loadCar(volvo, 0, 0);
         loader.loadCar(saab, 0, 0);
-        loader.unloadCar(saab);
-        loader.unloadCar(volvo);
+        loader.unloadCar();
+        loader.unloadCar();
         assertEquals(volvo.getX(), 0);
         assertEquals(saab.getX(), 0);
     }
@@ -25,8 +25,8 @@ public class testLab2 {
         Saab95 saab = new Saab95();
         volvoShop.loadCar(volvo);
         saabShop.loadCar(saab);
-        volvoShop.unloadCar(volvo);
-        saabShop.unloadCar(saab);
+        volvoShop.unloadCar();
+        saabShop.unloadCar();
         assertEquals(volvo.getX(), x);
         assertEquals(saab.getX(), x);
     }
@@ -39,8 +39,8 @@ public class testLab2 {
         transporter.loadCar(saab);
         assertTrue(transporter.getLoadedCars().get(0).equals(volvo));
         assertTrue(transporter.getLoadedCars().get(1).equals(saab));
-        transporter.unloadCar(saab);
-        transporter.unloadCar(volvo);
+        transporter.unloadCar();
+        transporter.unloadCar();
         assertTrue(transporter.getLoadedCars().isEmpty());
     }
     @Test
@@ -50,8 +50,8 @@ public class testLab2 {
         Saab95 saab = new Saab95();
         transporter.loadCar(volvo);
         transporter.loadCar(saab);
-        transporter.unloadCar(saab);
-        transporter.unloadCar(volvo);
+        transporter.unloadCar();
+        transporter.unloadCar();
         assertEquals(volvo.getY(), -1);
         assertEquals(saab.getY(), -1);
     }

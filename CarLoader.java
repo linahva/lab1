@@ -1,12 +1,12 @@
-import java.util.ArrayList;
+import java.util.Stack;
 
 public class CarLoader{
 
-    private ArrayList<Car> loadedCars;
+    private Stack<Car> loadedCars;
     private int capacity;
 
     public CarLoader(int capacity) {
-        loadedCars = new ArrayList<Car>(capacity);
+        loadedCars = new Stack<Car>();
         this.capacity=capacity;
     }
 
@@ -24,7 +24,7 @@ public class CarLoader{
         }
     }
 
-    public ArrayList<Car> getLoadedCars() {
+    public Stack<Car> getLoadedCars() {
         return loadedCars;
     }
 
@@ -34,12 +34,12 @@ public class CarLoader{
         double dist = Math.sqrt(Math.pow(xCar-x,2)+Math.pow(yCar-y,2));
         return dist < 1.5;
     }
-    public void unloadCar(Car car) {
-            if (loadedCars.size()>0 && loadedCars.get(loadedCars.size()-1)==car){
-                loadedCars.remove(car);
+    public void unloadCar() {
+            if (!loadedCars.empty()){
+                Car car = loadedCars.pop();
                 car.setLocation(car.getX(), car.getY()-1);
             } else {
-                throw new IllegalArgumentException("that car is not on top of the truck or doesnt exist");
+                throw new IllegalArgumentException("No car to unload");
             }
     }
 }

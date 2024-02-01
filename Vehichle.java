@@ -50,6 +50,9 @@ abstract class Vehichle implements Movable{
         public void stopEngine() {
             currentSpeed = 0;
         }
+        public void getModelName() {
+            System.out.println(modelName);
+        }
 
         @Override
         public void move() {
@@ -95,7 +98,6 @@ abstract class Vehichle implements Movable{
             currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
         }
 
-        // TODO fix this method according to lab pm
         //skriv dokumentation
         public void gas(double amount) {
             if (amount >= 0 && amount <= 1){
@@ -112,7 +114,6 @@ abstract class Vehichle implements Movable{
 
         }
 
-        // TODO fix this method according to lab pm
         public void brake(double amount) {
             if (amount >= 0 && amount <= 1){
                 decrementSpeed(amount);

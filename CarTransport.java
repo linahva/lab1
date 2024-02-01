@@ -13,7 +13,7 @@ public class CarTransport extends Truck implements Loadable<Car>{
     
     @Override
     public void move() {
-        if (!getPlatformStatus()){
+        if (getPlatformStatus()){
             super.move();
             for (Car car : loadedCars.getLoadedCars()){
                 car.setLocation(getX(), getY());
@@ -37,14 +37,14 @@ public class CarTransport extends Truck implements Loadable<Car>{
         }
     }
     public void loadCar(Car car){
-        if (!getPlatformStatus()){
+        if (getPlatformStatus()){
             loadedCars.loadCar(car, getX(), getY());
         } else {
             throw new IllegalStateException("Cant load car while truck bed is raised");
         }
     }
     public void unloadCar(Car car){
-        if (!getPlatformStatus()){
+        if (getPlatformStatus()){
             loadedCars.unloadCar(car);
         } else {
             throw new IllegalStateException("Cant unload car while truck bed is raised");

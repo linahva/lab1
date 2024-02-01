@@ -3,6 +3,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class testLab2 {
+    
     @Test
     public void testCarLoader(){
         CarLoader loader = new CarLoader(2);

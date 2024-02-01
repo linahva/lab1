@@ -1,7 +1,7 @@
 public class CarPlatform implements Platform{
     private boolean isRampDown;
     CarPlatform(){
-        isRampDown = false;
+        isRampDown = true;
     }
     public void rampDown(){
         isRampDown = true;

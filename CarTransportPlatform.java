@@ -1,6 +1,6 @@
-public class CarPlatform implements Platform{
+public class CarTransportPlatform implements Platform{
     private boolean isRampDown;
-    CarPlatform(){
+    CarTransportPlatform(){
         isRampDown = true;
     }
     public void rampDown(){

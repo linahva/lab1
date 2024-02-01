@@ -1,8 +1,8 @@
-public class CarPlatformAngles implements Platform{
+public class ScaniaPlatform implements Platform{
     private double angle;
     private final double maxAngle;
     
-    public CarPlatformAngles(double maxAngle){
+    public ScaniaPlatform(double maxAngle){
         this.angle = 0;
         this.maxAngle = maxAngle;
     }

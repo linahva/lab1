@@ -3,12 +3,12 @@ import java.util.ArrayList;
 
 public class CarTransport extends Truck implements Loadable<Car>{
     private CarLoader loadedCars;
-    private CarPlatform carPlatform;
+    private CarTransportPlatform carPlatform;
 
     CarTransport(){
         super(2, Color.BLACK, 500, "CarTransport");
         loadedCars = new CarLoader(3);
-        carPlatform = new CarPlatform();
+        carPlatform = new CarTransportPlatform();
     }
     
     @Override
